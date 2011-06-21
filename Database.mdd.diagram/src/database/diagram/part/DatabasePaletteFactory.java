@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.eclipse.gef.Tool;
 import org.eclipse.gef.palette.PaletteContainer;
-import org.eclipse.gef.palette.PaletteGroup;
+import org.eclipse.gef.palette.PaletteDrawer;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.palette.ToolEntry;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeConnectionTool;
@@ -23,20 +23,32 @@ public class DatabasePaletteFactory {
 	 * @generated
 	 */
 	public void fillPalette(PaletteRoot paletteRoot) {
-		paletteRoot.add(createDatabase1Group());
+		paletteRoot.add(createTable1Group());
+		paletteRoot.add(createRelationship2Group());
 	}
 
 	/**
-	 * Creates "database" palette tool group
+	 * Creates "Table" palette tool group
 	 * @generated
 	 */
-	private PaletteContainer createDatabase1Group() {
-		PaletteGroup paletteContainer = new PaletteGroup(
-				Messages.Database1Group_title);
-		paletteContainer.setId("createDatabase1Group"); //$NON-NLS-1$
+	private PaletteContainer createTable1Group() {
+		PaletteDrawer paletteContainer = new PaletteDrawer(
+				Messages.Table1Group_title);
+		paletteContainer.setId("createTable1Group"); //$NON-NLS-1$
 		paletteContainer.add(createTable1CreationTool());
 		paletteContainer.add(createColumn2CreationTool());
-		paletteContainer.add(createForeignKey3CreationTool());
+		return paletteContainer;
+	}
+
+	/**
+	 * Creates "Relationship" palette tool group
+	 * @generated
+	 */
+	private PaletteContainer createRelationship2Group() {
+		PaletteDrawer paletteContainer = new PaletteDrawer(
+				Messages.Relationship2Group_title);
+		paletteContainer.setId("createRelationship2Group"); //$NON-NLS-1$
+		paletteContainer.add(createRelation1CreationTool());
 		return paletteContainer;
 	}
 
@@ -73,12 +85,12 @@ public class DatabasePaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createForeignKey3CreationTool() {
+	private ToolEntry createRelation1CreationTool() {
 		LinkToolEntry entry = new LinkToolEntry(
-				Messages.ForeignKey3CreationTool_title,
-				Messages.ForeignKey3CreationTool_desc,
+				Messages.Relation1CreationTool_title,
+				Messages.Relation1CreationTool_desc,
 				Collections.singletonList(DatabaseElementTypes.ForeignKey_4001));
-		entry.setId("createForeignKey3CreationTool"); //$NON-NLS-1$
+		entry.setId("createRelation1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DatabaseElementTypes
 				.getImageDescriptor(DatabaseElementTypes.ForeignKey_4001));
 		entry.setLargeIcon(entry.getSmallIcon());

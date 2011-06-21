@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link database.ForeignKey#getTargetColumn <em>Target Column</em>}</li>
  *   <li>{@link database.ForeignKey#getTargetPrimaryKey <em>Target Primary Key</em>}</li>
  *   <li>{@link database.ForeignKey#getDbFkRoot <em>Db Fk Root</em>}</li>
+ *   <li>{@link database.ForeignKey#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -169,5 +170,31 @@ public interface ForeignKey extends EObject {
 	 * @generated
 	 */
 	void setDbFkRoot(Database value);
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see database.DatabasePackage#getForeignKey_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link database.ForeignKey#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 } // ForeignKey

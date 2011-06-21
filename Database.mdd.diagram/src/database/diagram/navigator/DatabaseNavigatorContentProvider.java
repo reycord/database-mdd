@@ -221,27 +221,6 @@ public class DatabaseNavigatorContentProvider implements ICommonContentProvider 
 	private Object[] getViewChildren(View view, Object parentElement) {
 		switch (DatabaseVisualIDRegistry.getVisualID(view)) {
 
-		case DatabaseEditPart.VISUAL_ID: {
-			LinkedList<DatabaseAbstractNavigatorItem> result = new LinkedList<DatabaseAbstractNavigatorItem>();
-			Diagram sv = (Diagram) view;
-			DatabaseNavigatorGroup links = new DatabaseNavigatorGroup(
-					Messages.NavigatorGroupName_Database_1000_links,
-					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DatabaseVisualIDRegistry.getType(TableEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
-					DatabaseVisualIDRegistry
-							.getType(ForeignKeyEditPart.VISUAL_ID));
-			links.addChildren(createNavigatorItems(connectedViews, links, false));
-			if (!links.isEmpty()) {
-				result.add(links);
-			}
-			return result.toArray();
-		}
-
 		case TableEditPart.VISUAL_ID: {
 			LinkedList<DatabaseAbstractNavigatorItem> result = new LinkedList<DatabaseAbstractNavigatorItem>();
 			Node sv = (Node) view;
@@ -302,6 +281,27 @@ public class DatabaseNavigatorContentProvider implements ICommonContentProvider 
 			}
 			if (!source.isEmpty()) {
 				result.add(source);
+			}
+			return result.toArray();
+		}
+
+		case DatabaseEditPart.VISUAL_ID: {
+			LinkedList<DatabaseAbstractNavigatorItem> result = new LinkedList<DatabaseAbstractNavigatorItem>();
+			Diagram sv = (Diagram) view;
+			DatabaseNavigatorGroup links = new DatabaseNavigatorGroup(
+					Messages.NavigatorGroupName_Database_1000_links,
+					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DatabaseVisualIDRegistry.getType(TableEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
+					DatabaseVisualIDRegistry
+							.getType(ForeignKeyEditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			if (!links.isEmpty()) {
+				result.add(links);
 			}
 			return result.toArray();
 		}

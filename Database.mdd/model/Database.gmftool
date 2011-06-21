@@ -7,7 +7,8 @@
       title="databasePalette">
     <tools
         xsi:type="gmftool:ToolGroup"
-        title="database">
+        title="Table"
+        collapsible="true">
       <tools
           xsi:type="gmftool:CreationTool"
           title="Table"
@@ -26,9 +27,14 @@
         <largeIcon
             xsi:type="gmftool:DefaultImage"/>
       </tools>
+    </tools>
+    <tools
+        xsi:type="gmftool:ToolGroup"
+        title="Relationship"
+        collapsible="true">
       <tools
           xsi:type="gmftool:CreationTool"
-          title="ForeignKey"
+          title="Relation"
           description="Create new ForeignKey">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>

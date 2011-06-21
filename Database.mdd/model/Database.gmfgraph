@@ -35,14 +35,19 @@
         name="ForeignKeyFigure">
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
-          name="ForeignKeyFigure"/>
+          name="ForeignKeyFigure"
+          targetDecoration="//@figures.0/@descriptors.1/@actualFigure/@children.0">
+        <children
+            xsi:type="gmfgraph:PolylineDecoration"
+            name="OpenArrow"/>
+      </actualFigure>
     </descriptors>
     <descriptors
         name="ColumnsNameFigure">
       <actualFigure
           xsi:type="gmfgraph:Label"
           name="ColumnsNameFigure"
-          text=""/>
+          text="&lt;...>"/>
     </descriptors>
   </figures>
   <nodes

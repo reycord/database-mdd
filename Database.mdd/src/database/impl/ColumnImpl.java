@@ -7,17 +7,19 @@
 package database.impl;
 
 import database.Column;
-import database.Database;
+import database.DataType;
 import database.DatabasePackage;
-
 import database.Table;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -29,6 +31,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link database.impl.ColumnImpl#getName <em>Name</em>}</li>
  *   <li>{@link database.impl.ColumnImpl#getColumnTable <em>Column Table</em>}</li>
+ *   <li>{@link database.impl.ColumnImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -44,6 +47,7 @@ public class ColumnImpl extends EObjectImpl implements Column {
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -53,6 +57,26 @@ public class ColumnImpl extends EObjectImpl implements Column {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final DataType TYPE_EDEFAULT = DataType.STRING;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected DataType type = TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,6 +164,27 @@ public class ColumnImpl extends EObjectImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public DataType getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(DataType newType) {
+		DataType oldType = type;
+		type = newType == null ? TYPE_EDEFAULT : newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatabasePackage.COLUMN__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -191,6 +236,8 @@ public class ColumnImpl extends EObjectImpl implements Column {
 				return getName();
 			case DatabasePackage.COLUMN__COLUMN_TABLE:
 				return getColumnTable();
+			case DatabasePackage.COLUMN__TYPE:
+				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -208,6 +255,9 @@ public class ColumnImpl extends EObjectImpl implements Column {
 				return;
 			case DatabasePackage.COLUMN__COLUMN_TABLE:
 				setColumnTable((Table)newValue);
+				return;
+			case DatabasePackage.COLUMN__TYPE:
+				setType((DataType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -227,6 +277,9 @@ public class ColumnImpl extends EObjectImpl implements Column {
 			case DatabasePackage.COLUMN__COLUMN_TABLE:
 				setColumnTable((Table)null);
 				return;
+			case DatabasePackage.COLUMN__TYPE:
+				setType(TYPE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -243,6 +296,8 @@ public class ColumnImpl extends EObjectImpl implements Column {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case DatabasePackage.COLUMN__COLUMN_TABLE:
 				return getColumnTable() != null;
+			case DatabasePackage.COLUMN__TYPE:
+				return type != TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -259,6 +314,8 @@ public class ColumnImpl extends EObjectImpl implements Column {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (Name: ");
 		result.append(name);
+		result.append(", Type: ");
+		result.append(type);
 		result.append(')');
 		return result.toString();
 	}

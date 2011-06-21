@@ -59,24 +59,6 @@ public interface Table extends EObject {
 	void setTablePrimaryKey(PrimaryKey value);
 
 	/**
-	 * Returns the value of the '<em><b>Table Column</b></em>' containment reference list.
-	 * The list contents are of type {@link database.Column}.
-	 * It is bidirectional and its opposite is '{@link database.Column#getColumnTable <em>Column Table</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Table Column</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Table Column</em>' containment reference list.
-	 * @see database.DatabasePackage#getTable_TableColumn()
-	 * @see database.Column#getColumnTable
-	 * @model opposite="ColumnTable" containment="true" required="true"
-	 * @generated
-	 */
-	EList<Column> getTableColumn();
-
-	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -129,5 +111,23 @@ public interface Table extends EObject {
 	 * @generated
 	 */
 	void setDbTableRoot(Database value);
+
+	/**
+	 * Returns the value of the '<em><b>Table Column</b></em>' containment reference list.
+	 * The list contents are of type {@link database.Column}.
+	 * It is bidirectional and its opposite is '{@link database.Column#getColumnTable <em>Column Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Table Column</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Table Column</em>' containment reference list.
+	 * @see database.DatabasePackage#getTable_TableColumn()
+	 * @see database.Column#getColumnTable
+	 * @model opposite="ColumnTable" containment="true" required="true"
+	 * @generated
+	 */
+	EList<Column> getTableColumn();
 
 } // Table

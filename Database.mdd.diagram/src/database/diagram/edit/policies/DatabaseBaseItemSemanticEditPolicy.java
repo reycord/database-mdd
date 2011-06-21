@@ -1,7 +1,10 @@
 package database.diagram.edit.policies;
 
+import java.util.Collections;
 import java.util.Iterator;
+import java.util.Map;
 
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
@@ -32,9 +35,11 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
 import database.Database;
+import database.DatabasePackage;
 import database.ForeignKey;
 import database.Table;
 import database.diagram.edit.helpers.DatabaseBaseEditHelper;
+import database.diagram.expressions.DatabaseOCLFactory;
 import database.diagram.part.DatabaseDiagramEditorPlugin;
 import database.diagram.part.DatabaseVisualIDRegistry;
 import database.diagram.providers.DatabaseElementTypes;
@@ -335,7 +340,30 @@ public class DatabaseBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		 */
 		public boolean canExistForeignKey_4001(Database container,
 				ForeignKey linkInstance, Table source, Table target) {
-			return true;
+			try {
+				if (source == null) {
+					return true;
+				} else {
+					Map<String, EClassifier> env = Collections
+							.<String, EClassifier> singletonMap(
+									"oppositeEnd", DatabasePackage.eINSTANCE.getTable()); //$NON-NLS-1$
+					Object sourceVal = DatabaseOCLFactory.getExpression(0,
+							DatabasePackage.eINSTANCE.getTable(), env)
+							.evaluate(
+									source,
+									Collections.singletonMap(
+											"oppositeEnd", target)); //$NON-NLS-1$
+					if (false == sourceVal instanceof Boolean
+							|| !((Boolean) sourceVal).booleanValue()) {
+						return false;
+					} // else fall-through
+				}
+				return true;
+			} catch (Exception e) {
+				DatabaseDiagramEditorPlugin.getInstance().logError(
+						"Link constraint evaluation error", e); //$NON-NLS-1$
+				return false;
+			}
 		}
 	}
 

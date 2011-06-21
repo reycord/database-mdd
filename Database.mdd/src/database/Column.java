@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link database.Column#getName <em>Name</em>}</li>
  *   <li>{@link database.Column#getColumnTable <em>Column Table</em>}</li>
+ *   <li>{@link database.Column#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,7 +27,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Column extends EObject {
-
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -80,4 +80,34 @@ public interface Column extends EObject {
 	 * @generated
 	 */
 	void setColumnTable(Table value);
+
+	/**
+	 * Returns the value of the '<em><b>Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link database.DataType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Type</em>' attribute.
+	 * @see database.DataType
+	 * @see #setType(DataType)
+	 * @see database.DatabasePackage#getColumn_Type()
+	 * @model
+	 * @generated
+	 */
+	DataType getType();
+
+	/**
+	 * Sets the value of the '{@link database.Column#getType <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' attribute.
+	 * @see database.DataType
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(DataType value);
+
 } // Column

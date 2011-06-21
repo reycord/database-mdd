@@ -25,9 +25,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -155,18 +153,6 @@ public class TableImpl extends EObjectImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Column> getTableColumn() {
-		if (tableColumn == null) {
-			tableColumn = new EObjectContainmentWithInverseEList<Column>(Column.class, this, DatabasePackage.TABLE__TABLE_COLUMN, DatabasePackage.COLUMN__COLUMN_TABLE);
-		}
-		return tableColumn;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getName() {
 		return name;
 	}
@@ -222,6 +208,18 @@ public class TableImpl extends EObjectImpl implements Table {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DatabasePackage.TABLE__DB_TABLE_ROOT, newDbTableRoot, newDbTableRoot));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Column> getTableColumn() {
+		if (tableColumn == null) {
+			tableColumn = new EObjectContainmentWithInverseEList<Column>(Column.class, this, DatabasePackage.TABLE__TABLE_COLUMN, DatabasePackage.COLUMN__COLUMN_TABLE);
+		}
+		return tableColumn;
 	}
 
 	/**

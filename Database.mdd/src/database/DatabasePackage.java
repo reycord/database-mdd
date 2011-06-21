@@ -8,7 +8,6 @@ package database;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -182,13 +181,22 @@ public interface DatabasePackage extends EPackage {
 	int COLUMN__COLUMN_TABLE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN__TYPE = 2;
+
+	/**
 	 * The number of structural features of the '<em>Column</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN_FEATURE_COUNT = 2;
+	int COLUMN_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link database.impl.ForeignKeyImpl <em>Foreign Key</em>}' class.
@@ -255,13 +263,22 @@ public interface DatabasePackage extends EPackage {
 	int FOREIGN_KEY__DB_FK_ROOT = 5;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOREIGN_KEY__NAME = 6;
+
+	/**
 	 * The number of structural features of the '<em>Foreign Key</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FOREIGN_KEY_FEATURE_COUNT = 6;
+	int FOREIGN_KEY_FEATURE_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link database.impl.PrimaryKeyImpl <em>Primary Key</em>}' class.
@@ -301,52 +318,14 @@ public interface DatabasePackage extends EPackage {
 	int PRIMARY_KEY_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link database.DatabaseDataType <em>Data Type</em>}' enum.
+	 * The meta object id for the '{@link database.DataType <em>Data Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see database.DatabaseDataType
-	 * @see database.impl.DatabasePackageImpl#getDatabaseDataType()
+	 * @see database.DataType
+	 * @see database.impl.DatabasePackageImpl#getDataType()
 	 * @generated
 	 */
-	int DATABASE_DATA_TYPE = 5;
-
-	/**
-	 * The meta object id for the '<em>String</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see java.lang.String
-	 * @see database.impl.DatabasePackageImpl#getString()
-	 * @generated
-	 */
-	int STRING = 6;
-
-	/**
-	 * The meta object id for the '<em>Int</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see database.impl.DatabasePackageImpl#getInt()
-	 * @generated
-	 */
-	int INT = 7;
-
-	/**
-	 * The meta object id for the '<em>Date</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see java.util.Date
-	 * @see database.impl.DatabasePackageImpl#getDate()
-	 * @generated
-	 */
-	int DATE = 8;
-
-	/**
-	 * The meta object id for the '<em>Float</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see database.impl.DatabasePackageImpl#getFloat()
-	 * @generated
-	 */
-	int FLOAT = 9;
+	int DATA_TYPE = 5;
 
 
 	/**
@@ -403,17 +382,6 @@ public interface DatabasePackage extends EPackage {
 	EReference getTable_TablePrimaryKey();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link database.Table#getTableColumn <em>Table Column</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Table Column</em>'.
-	 * @see database.Table#getTableColumn()
-	 * @see #getTable()
-	 * @generated
-	 */
-	EReference getTable_TableColumn();
-
-	/**
 	 * Returns the meta object for the attribute '{@link database.Table#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -434,6 +402,17 @@ public interface DatabasePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTable_DbTableRoot();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link database.Table#getTableColumn <em>Table Column</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Table Column</em>'.
+	 * @see database.Table#getTableColumn()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EReference getTable_TableColumn();
 
 	/**
 	 * Returns the meta object for class '{@link database.Column <em>Column</em>}'.
@@ -466,6 +445,17 @@ public interface DatabasePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getColumn_ColumnTable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link database.Column#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see database.Column#getType()
+	 * @see #getColumn()
+	 * @generated
+	 */
+	EAttribute getColumn_Type();
 
 	/**
 	 * Returns the meta object for class '{@link database.ForeignKey <em>Foreign Key</em>}'.
@@ -544,6 +534,17 @@ public interface DatabasePackage extends EPackage {
 	EReference getForeignKey_DbFkRoot();
 
 	/**
+	 * Returns the meta object for the attribute '{@link database.ForeignKey#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see database.ForeignKey#getName()
+	 * @see #getForeignKey()
+	 * @generated
+	 */
+	EAttribute getForeignKey_Name();
+
+	/**
 	 * Returns the meta object for class '{@link database.PrimaryKey <em>Primary Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -576,56 +577,14 @@ public interface DatabasePackage extends EPackage {
 	EReference getPrimaryKey_PrimaryKeyTable();
 
 	/**
-	 * Returns the meta object for enum '{@link database.DatabaseDataType <em>Data Type</em>}'.
+	 * Returns the meta object for enum '{@link database.DataType <em>Data Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for enum '<em>Data Type</em>'.
-	 * @see database.DatabaseDataType
+	 * @see database.DataType
 	 * @generated
 	 */
-	EEnum getDatabaseDataType();
-
-	/**
-	 * Returns the meta object for data type '{@link java.lang.String <em>String</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>String</em>'.
-	 * @see java.lang.String
-	 * @model instanceClass="java.lang.String"
-	 * @generated
-	 */
-	EDataType getString();
-
-	/**
-	 * Returns the meta object for data type '<em>Int</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Int</em>'.
-	 * @model instanceClass="int"
-	 * @generated
-	 */
-	EDataType getInt();
-
-	/**
-	 * Returns the meta object for data type '{@link java.util.Date <em>Date</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Date</em>'.
-	 * @see java.util.Date
-	 * @model instanceClass="java.util.Date"
-	 * @generated
-	 */
-	EDataType getDate();
-
-	/**
-	 * Returns the meta object for data type '<em>Float</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Float</em>'.
-	 * @model instanceClass="float"
-	 * @generated
-	 */
-	EDataType getFloat();
+	EEnum getDataType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -694,14 +653,6 @@ public interface DatabasePackage extends EPackage {
 		EReference TABLE__TABLE_PRIMARY_KEY = eINSTANCE.getTable_TablePrimaryKey();
 
 		/**
-		 * The meta object literal for the '<em><b>Table Column</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TABLE__TABLE_COLUMN = eINSTANCE.getTable_TableColumn();
-
-		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -716,6 +667,14 @@ public interface DatabasePackage extends EPackage {
 		 * @generated
 		 */
 		EReference TABLE__DB_TABLE_ROOT = eINSTANCE.getTable_DbTableRoot();
+
+		/**
+		 * The meta object literal for the '<em><b>Table Column</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TABLE__TABLE_COLUMN = eINSTANCE.getTable_TableColumn();
 
 		/**
 		 * The meta object literal for the '{@link database.impl.ColumnImpl <em>Column</em>}' class.
@@ -742,6 +701,14 @@ public interface DatabasePackage extends EPackage {
 		 * @generated
 		 */
 		EReference COLUMN__COLUMN_TABLE = eINSTANCE.getColumn_ColumnTable();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLUMN__TYPE = eINSTANCE.getColumn_Type();
 
 		/**
 		 * The meta object literal for the '{@link database.impl.ForeignKeyImpl <em>Foreign Key</em>}' class.
@@ -802,6 +769,14 @@ public interface DatabasePackage extends EPackage {
 		EReference FOREIGN_KEY__DB_FK_ROOT = eINSTANCE.getForeignKey_DbFkRoot();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FOREIGN_KEY__NAME = eINSTANCE.getForeignKey_Name();
+
+		/**
 		 * The meta object literal for the '{@link database.impl.PrimaryKeyImpl <em>Primary Key</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -828,52 +803,14 @@ public interface DatabasePackage extends EPackage {
 		EReference PRIMARY_KEY__PRIMARY_KEY_TABLE = eINSTANCE.getPrimaryKey_PrimaryKeyTable();
 
 		/**
-		 * The meta object literal for the '{@link database.DatabaseDataType <em>Data Type</em>}' enum.
+		 * The meta object literal for the '{@link database.DataType <em>Data Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see database.DatabaseDataType
-		 * @see database.impl.DatabasePackageImpl#getDatabaseDataType()
+		 * @see database.DataType
+		 * @see database.impl.DatabasePackageImpl#getDataType()
 		 * @generated
 		 */
-		EEnum DATABASE_DATA_TYPE = eINSTANCE.getDatabaseDataType();
-
-		/**
-		 * The meta object literal for the '<em>String</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see java.lang.String
-		 * @see database.impl.DatabasePackageImpl#getString()
-		 * @generated
-		 */
-		EDataType STRING = eINSTANCE.getString();
-
-		/**
-		 * The meta object literal for the '<em>Int</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see database.impl.DatabasePackageImpl#getInt()
-		 * @generated
-		 */
-		EDataType INT = eINSTANCE.getInt();
-
-		/**
-		 * The meta object literal for the '<em>Date</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see java.util.Date
-		 * @see database.impl.DatabasePackageImpl#getDate()
-		 * @generated
-		 */
-		EDataType DATE = eINSTANCE.getDate();
-
-		/**
-		 * The meta object literal for the '<em>Float</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see database.impl.DatabasePackageImpl#getFloat()
-		 * @generated
-		 */
-		EDataType FLOAT = eINSTANCE.getFloat();
+		EEnum DATA_TYPE = eINSTANCE.getDataType();
 
 	}
 

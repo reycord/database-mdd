@@ -6,13 +6,12 @@
     complianceLevel="6.0" copyrightFields="false">
   <foreignModel>Database.ecore</foreignModel>
   <genPackages prefix="Database" disposableProviderFactory="true" ecorePackage="Database.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Database.ecore#//DatabaseDataType">
-      <genEnumLiterals ecoreEnumLiteral="Database.ecore#//DatabaseDataType/String"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Database.ecore#//DataType">
+      <genEnumLiterals ecoreEnumLiteral="Database.ecore#//DataType/String"/>
+      <genEnumLiterals ecoreEnumLiteral="Database.ecore#//DataType/Int"/>
+      <genEnumLiterals ecoreEnumLiteral="Database.ecore#//DataType/Float"/>
+      <genEnumLiterals ecoreEnumLiteral="Database.ecore#//DataType/Date"/>
     </genEnums>
-    <genDataTypes ecoreDataType="Database.ecore#//String"/>
-    <genDataTypes ecoreDataType="Database.ecore#//Int"/>
-    <genDataTypes ecoreDataType="Database.ecore#//Date"/>
-    <genDataTypes ecoreDataType="Database.ecore#//Float"/>
     <genClasses ecoreClass="Database.ecore#//Database">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Database.ecore#//Database/DbFK"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Database.ecore#//Database/DbTable"/>
@@ -26,6 +25,7 @@
     <genClasses ecoreClass="Database.ecore#//Column">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Database.ecore#//Column/Name"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Database.ecore#//Column/ColumnTable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Database.ecore#//Column/Type"/>
     </genClasses>
     <genClasses ecoreClass="Database.ecore#//ForeignKey">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Database.ecore#//ForeignKey/SourceTable"/>
@@ -34,6 +34,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Database.ecore#//ForeignKey/TargetColumn"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Database.ecore#//ForeignKey/TargetPrimaryKey"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Database.ecore#//ForeignKey/DbFkRoot"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Database.ecore#//ForeignKey/Name"/>
     </genClasses>
     <genClasses ecoreClass="Database.ecore#//PrimaryKey">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Database.ecore#//PrimaryKey/PrimaryKeyColumn"/>

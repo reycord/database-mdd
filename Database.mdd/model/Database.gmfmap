@@ -58,7 +58,7 @@
         href="Database.ecore#//Database/DbFK"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="Database.gmftool#//@palette/@tools.0/@tools.2"/>
+        href="Database.gmftool#//@palette/@tools.1/@tools.0"/>
     <diagramLink
         href="Database.gmfgraph#ForeignKey"/>
     <sourceMetaFeature
@@ -67,6 +67,10 @@
     <linkMetaFeature
         xsi:type="ecore:EReference"
         href="Database.ecore#//ForeignKey/TargetTable"/>
+    <creationConstraints>
+      <sourceEnd
+          body="self &lt;> oppositeEnd"/>
+    </creationConstraints>
   </links>
   <diagram>
     <diagramCanvas

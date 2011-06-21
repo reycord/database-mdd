@@ -7,19 +7,16 @@
 package database.impl;
 
 import database.Column;
+import database.DataType;
 import database.Database;
-import database.DatabaseDataType;
 import database.DatabaseFactory;
 import database.DatabasePackage;
 import database.ForeignKey;
 import database.PrimaryKey;
 import database.Table;
 
-import java.util.Date;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -73,35 +70,7 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum databaseDataTypeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType stringEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType intEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType dateEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType floatEDataType = null;
+	private EEnum dataTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -214,15 +183,6 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTable_TableColumn() {
-		return (EReference)tableEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getTable_Name() {
 		return (EAttribute)tableEClass.getEStructuralFeatures().get(1);
 	}
@@ -234,6 +194,15 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 	 */
 	public EReference getTable_DbTableRoot() {
 		return (EReference)tableEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTable_TableColumn() {
+		return (EReference)tableEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -261,6 +230,15 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 	 */
 	public EReference getColumn_ColumnTable() {
 		return (EReference)columnEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getColumn_Type() {
+		return (EAttribute)columnEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -331,6 +309,15 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getForeignKey_Name() {
+		return (EAttribute)foreignKeyEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPrimaryKey() {
 		return primaryKeyEClass;
 	}
@@ -358,44 +345,8 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getDatabaseDataType() {
-		return databaseDataTypeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EDataType getString() {
-		return stringEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EDataType getInt() {
-		return intEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EDataType getDate() {
-		return dateEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EDataType getFloat() {
-		return floatEDataType;
+	public EEnum getDataType() {
+		return dataTypeEEnum;
 	}
 
 	/**
@@ -439,6 +390,7 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 		columnEClass = createEClass(COLUMN);
 		createEAttribute(columnEClass, COLUMN__NAME);
 		createEReference(columnEClass, COLUMN__COLUMN_TABLE);
+		createEAttribute(columnEClass, COLUMN__TYPE);
 
 		foreignKeyEClass = createEClass(FOREIGN_KEY);
 		createEReference(foreignKeyEClass, FOREIGN_KEY__SOURCE_TABLE);
@@ -447,19 +399,14 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 		createEReference(foreignKeyEClass, FOREIGN_KEY__TARGET_COLUMN);
 		createEReference(foreignKeyEClass, FOREIGN_KEY__TARGET_PRIMARY_KEY);
 		createEReference(foreignKeyEClass, FOREIGN_KEY__DB_FK_ROOT);
+		createEAttribute(foreignKeyEClass, FOREIGN_KEY__NAME);
 
 		primaryKeyEClass = createEClass(PRIMARY_KEY);
 		createEReference(primaryKeyEClass, PRIMARY_KEY__PRIMARY_KEY_COLUMN);
 		createEReference(primaryKeyEClass, PRIMARY_KEY__PRIMARY_KEY_TABLE);
 
 		// Create enums
-		databaseDataTypeEEnum = createEEnum(DATABASE_DATA_TYPE);
-
-		// Create data types
-		stringEDataType = createEDataType(STRING);
-		intEDataType = createEDataType(INT);
-		dateEDataType = createEDataType(DATE);
-		floatEDataType = createEDataType(FLOAT);
+		dataTypeEEnum = createEEnum(DATA_TYPE);
 	}
 
 	/**
@@ -505,6 +452,7 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 		initEClass(columnEClass, Column.class, "Column", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getColumn_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getColumn_ColumnTable(), this.getTable(), this.getTable_TableColumn(), "ColumnTable", null, 1, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getColumn_Type(), this.getDataType(), "Type", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(foreignKeyEClass, ForeignKey.class, "ForeignKey", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getForeignKey_SourceTable(), this.getTable(), null, "SourceTable", null, 1, 1, ForeignKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -513,20 +461,18 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 		initEReference(getForeignKey_TargetColumn(), this.getColumn(), null, "TargetColumn", null, 1, -1, ForeignKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getForeignKey_TargetPrimaryKey(), this.getPrimaryKey(), null, "TargetPrimaryKey", null, 1, 1, ForeignKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getForeignKey_DbFkRoot(), this.getDatabase(), this.getDatabase_DbFK(), "DbFkRoot", null, 1, 1, ForeignKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getForeignKey_Name(), ecorePackage.getEString(), "Name", null, 0, 1, ForeignKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(primaryKeyEClass, PrimaryKey.class, "PrimaryKey", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPrimaryKey_PrimaryKeyColumn(), this.getColumn(), null, "PrimaryKeyColumn", null, 1, -1, PrimaryKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPrimaryKey_PrimaryKeyTable(), this.getTable(), this.getTable_TablePrimaryKey(), "PrimaryKeyTable", null, 1, 1, PrimaryKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
-		initEEnum(databaseDataTypeEEnum, DatabaseDataType.class, "DatabaseDataType");
-		addEEnumLiteral(databaseDataTypeEEnum, DatabaseDataType.STRING);
-
-		// Initialize data types
-		initEDataType(stringEDataType, String.class, "String", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(intEDataType, int.class, "Int", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(dateEDataType, Date.class, "Date", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(floatEDataType, float.class, "Float", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEEnum(dataTypeEEnum, DataType.class, "DataType");
+		addEEnumLiteral(dataTypeEEnum, DataType.STRING);
+		addEEnumLiteral(dataTypeEEnum, DataType.INT);
+		addEEnumLiteral(dataTypeEEnum, DataType.FLOAT);
+		addEEnumLiteral(dataTypeEEnum, DataType.DATE);
 
 		// Create resource
 		createResource(eNS_URI);

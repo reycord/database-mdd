@@ -243,7 +243,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Database1Group_title;
+	public static String Table1Group_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Relationship2Group_title;
 
 	/**
 	 * @generated
@@ -268,12 +273,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ForeignKey3CreationTool_title;
+	public static String Relation1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ForeignKey3CreationTool_desc;
+	public static String Relation1CreationTool_desc;
 
 	/**
 	 * @generated
@@ -284,11 +289,6 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String CommandName_OpenDiagram;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Database_1000_links;
 
 	/**
 	 * @generated
@@ -309,6 +309,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_ForeignKey_4001_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Database_1000_links;
 
 	/**
 	 * @generated

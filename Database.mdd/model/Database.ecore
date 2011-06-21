@@ -22,6 +22,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ColumnTable" lowerBound="1"
         eType="#//Table" eOpposite="#//Table/TableColumn"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="#//DataType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ForeignKey">
     <eStructuralFeatures xsi:type="ecore:EReference" name="SourceTable" lowerBound="1"
@@ -36,6 +37,7 @@
         eType="#//PrimaryKey"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="DbFkRoot" lowerBound="1"
         eType="#//Database" eOpposite="#//Database/DbFK"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PrimaryKey">
     <eStructuralFeatures xsi:type="ecore:EReference" name="PrimaryKeyColumn" lowerBound="1"
@@ -43,11 +45,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="PrimaryKeyTable" lowerBound="1"
         eType="#//Table" eOpposite="#//Table/TablePrimaryKey"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="String" instanceClassName="java.lang.String"/>
-  <eClassifiers xsi:type="ecore:EDataType" name="Int" instanceClassName="int"/>
-  <eClassifiers xsi:type="ecore:EDataType" name="Date" instanceClassName="java.util.Date"/>
-  <eClassifiers xsi:type="ecore:EDataType" name="Float" instanceClassName="float"/>
-  <eClassifiers xsi:type="ecore:EEnum" name="DatabaseDataType">
+  <eClassifiers xsi:type="ecore:EEnum" name="DataType">
     <eLiterals name="String"/>
+    <eLiterals name="Int" value="1"/>
+    <eLiterals name="Float" value="2"/>
+    <eLiterals name="Date" value="3"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -21,6 +21,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
 import database.diagram.edit.policies.DatabaseBaseItemSemanticEditPolicy;
+import database.diagram.expressions.DatabaseOCLFactory;
 import database.diagram.providers.ElementInitializers;
 import database.provider.DatabaseItemProviderAdapterFactory;
 
@@ -68,6 +69,11 @@ public class DatabaseDiagramEditorPlugin extends AbstractUIPlugin {
 	/**
 	 * @generated
 	 */
+	private DatabaseOCLFactory oclFactory;
+
+	/**
+	 * @generated
+	 */
 	public DatabaseDiagramEditorPlugin() {
 	}
 
@@ -90,6 +96,7 @@ public class DatabaseDiagramEditorPlugin extends AbstractUIPlugin {
 		adapterFactory = null;
 		linkConstraints = null;
 		initializers = null;
+		oclFactory = null;
 		instance = null;
 		super.stop(context);
 	}
@@ -233,6 +240,20 @@ public class DatabaseDiagramEditorPlugin extends AbstractUIPlugin {
 	 */
 	public void setElementInitializers(ElementInitializers i) {
 		this.initializers = i;
+	}
+
+	/**
+	 * @generated
+	 */
+	public DatabaseOCLFactory getDatabaseOCLFactory() {
+		return oclFactory;
+	}
+
+	/**
+	 * @generated
+	 */
+	public void setDatabaseOCLFactory(DatabaseOCLFactory f) {
+		this.oclFactory = f;
 	}
 
 	/**

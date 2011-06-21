@@ -65,6 +65,7 @@ public class ColumnItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -83,6 +84,28 @@ public class ColumnItemProvider
 				 getString("_UI_Column_Name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Column_Name_feature", "_UI_Column_type"),
 				 DatabasePackage.Literals.COLUMN__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Column_Type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Column_Type_feature", "_UI_Column_type"),
+				 DatabasePackage.Literals.COLUMN__TYPE,
 				 true,
 				 false,
 				 false,
@@ -129,6 +152,7 @@ public class ColumnItemProvider
 
 		switch (notification.getFeatureID(Column.class)) {
 			case DatabasePackage.COLUMN__NAME:
+			case DatabasePackage.COLUMN__TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
