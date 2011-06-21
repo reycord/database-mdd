@@ -1,0 +1,8 @@
+#Sun Jun 19 13:55:15 ICT 2011
+eclipse.preferences.version=1
+gmf_dashboard/domainGenerationModel=platform\:/resource/Database.mdd/model/Database.genmodel
+gmf_dashboard/domainModel=platform\:/resource/Database.mdd/model/Database.ecore
+gmf_dashboard/generationModel=platform\:/resource/Database.mdd/model/Database.gmfgen
+gmf_dashboard/graphicalDefinitionModel=platform\:/resource/Database.mdd/model/Database.gmfgraph
+gmf_dashboard/mappingModel=platform\:/resource/Database.mdd/model/Database.gmfmap
+gmf_dashboard/toolingDefinitionModel=platform\:/resource/Database.mdd/model/Database.gmftool

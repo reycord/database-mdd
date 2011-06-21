@@ -1,0 +1,7 @@
+# Tracing options for the Database.mdd.diagram plug-in
+
+# Common issues
+Database.mdd.diagram/debug=false
+
+# Visual IDs
+Database.mdd.diagram/debug/visualID=false
