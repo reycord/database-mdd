@@ -168,29 +168,6 @@ public class DatabaseItemProviderAdapterFactory extends DatabaseAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link database.PrimaryKey} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PrimaryKeyItemProvider primaryKeyItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link database.PrimaryKey}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPrimaryKeyAdapter() {
-		if (primaryKeyItemProvider == null) {
-			primaryKeyItemProvider = new PrimaryKeyItemProvider(this);
-		}
-
-		return primaryKeyItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -293,7 +270,6 @@ public class DatabaseItemProviderAdapterFactory extends DatabaseAdapterFactory i
 		if (tableItemProvider != null) tableItemProvider.dispose();
 		if (columnItemProvider != null) columnItemProvider.dispose();
 		if (foreignKeyItemProvider != null) foreignKeyItemProvider.dispose();
-		if (primaryKeyItemProvider != null) primaryKeyItemProvider.dispose();
 	}
 
 }

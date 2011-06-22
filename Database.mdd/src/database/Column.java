@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link database.Column#getName <em>Name</em>}</li>
  *   <li>{@link database.Column#getColumnTable <em>Column Table</em>}</li>
  *   <li>{@link database.Column#getType <em>Type</em>}</li>
+ *   <li>{@link database.Column#isIsPrimaryKey <em>Is Primary Key</em>}</li>
  * </ul>
  * </p>
  *
@@ -109,5 +110,32 @@ public interface Column extends EObject {
 	 * @generated
 	 */
 	void setType(DataType value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Primary Key</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Primary Key</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Primary Key</em>' attribute.
+	 * @see #setIsPrimaryKey(boolean)
+	 * @see database.DatabasePackage#getColumn_IsPrimaryKey()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isIsPrimaryKey();
+
+	/**
+	 * Sets the value of the '{@link database.Column#isIsPrimaryKey <em>Is Primary Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Primary Key</em>' attribute.
+	 * @see #isIsPrimaryKey()
+	 * @generated
+	 */
+	void setIsPrimaryKey(boolean value);
 
 } // Column

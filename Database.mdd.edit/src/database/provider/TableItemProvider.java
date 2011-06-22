@@ -106,7 +106,6 @@ public class TableItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DatabasePackage.Literals.TABLE__TABLE_PRIMARY_KEY);
 			childrenFeatures.add(DatabasePackage.Literals.TABLE__TABLE_COLUMN);
 		}
 		return childrenFeatures;
@@ -165,7 +164,6 @@ public class TableItemProvider
 			case DatabasePackage.TABLE__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case DatabasePackage.TABLE__TABLE_PRIMARY_KEY:
 			case DatabasePackage.TABLE__TABLE_COLUMN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -183,11 +181,6 @@ public class TableItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatabasePackage.Literals.TABLE__TABLE_PRIMARY_KEY,
-				 DatabaseFactory.eINSTANCE.createPrimaryKey()));
 
 		newChildDescriptors.add
 			(createChildParameter

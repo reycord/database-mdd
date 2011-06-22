@@ -62,15 +62,6 @@ public interface DatabaseFactory extends EFactory {
 	ForeignKey createForeignKey();
 
 	/**
-	 * Returns a new object of class '<em>Primary Key</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Primary Key</em>'.
-	 * @generated
-	 */
-	PrimaryKey createPrimaryKey();
-
-	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

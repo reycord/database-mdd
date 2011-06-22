@@ -8,16 +8,16 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
-import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
+import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
+import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
+import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ConstrainedToolbarLayoutEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
@@ -29,7 +29,6 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
-import database.diagram.edit.policies.DatabaseTextSelectionEditPolicy;
 import database.diagram.edit.policies.TableItemSemanticEditPolicy;
 import database.diagram.part.DatabaseVisualIDRegistry;
 import database.diagram.providers.DatabaseElementTypes;
@@ -79,16 +78,23 @@ public class TableEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected LayoutEditPolicy createLayoutEditPolicy() {
-
-		ConstrainedToolbarLayoutEditPolicy lep = new ConstrainedToolbarLayoutEditPolicy() {
+		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				if (child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE) == null) {
-					if (child instanceof ITextAwareEditPart) {
-						return new DatabaseTextSelectionEditPolicy();
-					}
+				EditPolicy result = child
+						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				if (result == null) {
+					result = new NonResizableEditPolicy();
 				}
-				return super.createChildEditPolicy(child);
+				return result;
+			}
+
+			protected Command getMoveChildrenCommand(Request request) {
+				return null;
+			}
+
+			protected Command getCreateCommand(CreateRequest request) {
+				return null;
 			}
 		};
 		return lep;
@@ -339,16 +345,6 @@ public class TableEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public TableFigure() {
-
-			ToolbarLayout layoutThis = new ToolbarLayout();
-			layoutThis.setStretchMinorAxis(false);
-			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
-
-			layoutThis.setSpacing(5);
-			layoutThis.setVertical(true);
-
-			this.setLayoutManager(layoutThis);
-
 			createContents();
 		}
 

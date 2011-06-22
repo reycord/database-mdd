@@ -611,7 +611,7 @@ public class ColumnEditPart extends CompartmentEditPart implements
 		 * @generated
 		 */
 		public ColumnsNameFigure() {
-			this.setText("");
+			this.setText("<...>");
 		}
 
 	}

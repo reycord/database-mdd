@@ -303,17 +303,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_Database_1000_links;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_ForeignKey_4001_target;
 
 	/**
 	 * @generated
 	 */
 	public static String NavigatorGroupName_ForeignKey_4001_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Database_1000_links;
 
 	/**
 	 * @generated

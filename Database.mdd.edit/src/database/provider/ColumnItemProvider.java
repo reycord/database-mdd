@@ -66,6 +66,7 @@ public class ColumnItemProvider
 
 			addNamePropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
+			addIsPrimaryKeyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -115,6 +116,28 @@ public class ColumnItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Is Primary Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIsPrimaryKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Column_IsPrimaryKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Column_IsPrimaryKey_feature", "_UI_Column_type"),
+				 DatabasePackage.Literals.COLUMN__IS_PRIMARY_KEY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Column.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -153,6 +176,7 @@ public class ColumnItemProvider
 		switch (notification.getFeatureID(Column.class)) {
 			case DatabasePackage.COLUMN__NAME:
 			case DatabasePackage.COLUMN__TYPE:
+			case DatabasePackage.COLUMN__IS_PRIMARY_KEY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -89,15 +89,15 @@ public class DatabaseNavigatorLabelProvider extends LabelProvider implements
 		case TableEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://database/1.0?Table", DatabaseElementTypes.Table_2001); //$NON-NLS-1$
-		case ForeignKeyEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://database/1.0?ForeignKey", DatabaseElementTypes.ForeignKey_4001); //$NON-NLS-1$
 		case DatabaseEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Diagram?http://database/1.0?Database", DatabaseElementTypes.Database_1000); //$NON-NLS-1$
 		case ColumnEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://database/1.0?Column", DatabaseElementTypes.Column_3001); //$NON-NLS-1$
+		case ForeignKeyEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://database/1.0?ForeignKey", DatabaseElementTypes.ForeignKey_4001); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -152,12 +152,12 @@ public class DatabaseNavigatorLabelProvider extends LabelProvider implements
 		switch (DatabaseVisualIDRegistry.getVisualID(view)) {
 		case TableEditPart.VISUAL_ID:
 			return getTable_2001Text(view);
-		case ForeignKeyEditPart.VISUAL_ID:
-			return getForeignKey_4001Text(view);
 		case DatabaseEditPart.VISUAL_ID:
 			return getDatabase_1000Text(view);
 		case ColumnEditPart.VISUAL_ID:
 			return getColumn_3001Text(view);
+		case ForeignKeyEditPart.VISUAL_ID:
+			return getForeignKey_4001Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -184,20 +184,6 @@ public class DatabaseNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getForeignKey_4001Text(View view) {
-		ForeignKey domainModelElement = (ForeignKey) view.getElement();
-		if (domainModelElement != null) {
-			return domainModelElement.getName();
-		} else {
-			DatabaseDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 4001); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
 	private String getDatabase_1000Text(View view) {
 		return ""; //$NON-NLS-1$
 	}
@@ -217,6 +203,20 @@ public class DatabaseNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			DatabaseDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 3001); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getForeignKey_4001Text(View view) {
+		ForeignKey domainModelElement = (ForeignKey) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getName();
+		} else {
+			DatabaseDiagramEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 4001); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link database.Table#getTablePrimaryKey <em>Table Primary Key</em>}</li>
  *   <li>{@link database.Table#getName <em>Name</em>}</li>
  *   <li>{@link database.Table#getDbTableRoot <em>Db Table Root</em>}</li>
  *   <li>{@link database.Table#getTableColumn <em>Table Column</em>}</li>
@@ -30,34 +29,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Table extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Table Primary Key</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link database.PrimaryKey#getPrimaryKeyTable <em>Primary Key Table</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Table Primary Key</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Table Primary Key</em>' containment reference.
-	 * @see #setTablePrimaryKey(PrimaryKey)
-	 * @see database.DatabasePackage#getTable_TablePrimaryKey()
-	 * @see database.PrimaryKey#getPrimaryKeyTable
-	 * @model opposite="PrimaryKeyTable" containment="true"
-	 * @generated
-	 */
-	PrimaryKey getTablePrimaryKey();
-
-	/**
-	 * Sets the value of the '{@link database.Table#getTablePrimaryKey <em>Table Primary Key</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Table Primary Key</em>' containment reference.
-	 * @see #getTablePrimaryKey()
-	 * @generated
-	 */
-	void setTablePrimaryKey(PrimaryKey value);
-
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

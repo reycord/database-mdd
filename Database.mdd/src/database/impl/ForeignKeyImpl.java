@@ -10,7 +10,6 @@ import database.Column;
 import database.Database;
 import database.DatabasePackage;
 import database.ForeignKey;
-import database.PrimaryKey;
 import database.Table;
 
 import java.util.Collection;
@@ -40,7 +39,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link database.impl.ForeignKeyImpl#getTargetTable <em>Target Table</em>}</li>
  *   <li>{@link database.impl.ForeignKeyImpl#getSourceColumn <em>Source Column</em>}</li>
  *   <li>{@link database.impl.ForeignKeyImpl#getTargetColumn <em>Target Column</em>}</li>
- *   <li>{@link database.impl.ForeignKeyImpl#getTargetPrimaryKey <em>Target Primary Key</em>}</li>
  *   <li>{@link database.impl.ForeignKeyImpl#getDbFkRoot <em>Db Fk Root</em>}</li>
  *   <li>{@link database.impl.ForeignKeyImpl#getName <em>Name</em>}</li>
  * </ul>
@@ -88,16 +86,6 @@ public class ForeignKeyImpl extends EObjectImpl implements ForeignKey {
 	 * @ordered
 	 */
 	protected EList<Column> targetColumn;
-
-	/**
-	 * The cached value of the '{@link #getTargetPrimaryKey() <em>Target Primary Key</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTargetPrimaryKey()
-	 * @generated
-	 * @ordered
-	 */
-	protected PrimaryKey targetPrimaryKey;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -243,44 +231,6 @@ public class ForeignKeyImpl extends EObjectImpl implements ForeignKey {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PrimaryKey getTargetPrimaryKey() {
-		if (targetPrimaryKey != null && targetPrimaryKey.eIsProxy()) {
-			InternalEObject oldTargetPrimaryKey = (InternalEObject)targetPrimaryKey;
-			targetPrimaryKey = (PrimaryKey)eResolveProxy(oldTargetPrimaryKey);
-			if (targetPrimaryKey != oldTargetPrimaryKey) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DatabasePackage.FOREIGN_KEY__TARGET_PRIMARY_KEY, oldTargetPrimaryKey, targetPrimaryKey));
-			}
-		}
-		return targetPrimaryKey;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PrimaryKey basicGetTargetPrimaryKey() {
-		return targetPrimaryKey;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTargetPrimaryKey(PrimaryKey newTargetPrimaryKey) {
-		PrimaryKey oldTargetPrimaryKey = targetPrimaryKey;
-		targetPrimaryKey = newTargetPrimaryKey;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatabasePackage.FOREIGN_KEY__TARGET_PRIMARY_KEY, oldTargetPrimaryKey, targetPrimaryKey));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Database getDbFkRoot() {
 		if (eContainerFeatureID() != DatabasePackage.FOREIGN_KEY__DB_FK_ROOT) return null;
 		return (Database)eContainer();
@@ -400,9 +350,6 @@ public class ForeignKeyImpl extends EObjectImpl implements ForeignKey {
 				return getSourceColumn();
 			case DatabasePackage.FOREIGN_KEY__TARGET_COLUMN:
 				return getTargetColumn();
-			case DatabasePackage.FOREIGN_KEY__TARGET_PRIMARY_KEY:
-				if (resolve) return getTargetPrimaryKey();
-				return basicGetTargetPrimaryKey();
 			case DatabasePackage.FOREIGN_KEY__DB_FK_ROOT:
 				return getDbFkRoot();
 			case DatabasePackage.FOREIGN_KEY__NAME:
@@ -434,9 +381,6 @@ public class ForeignKeyImpl extends EObjectImpl implements ForeignKey {
 				getTargetColumn().clear();
 				getTargetColumn().addAll((Collection<? extends Column>)newValue);
 				return;
-			case DatabasePackage.FOREIGN_KEY__TARGET_PRIMARY_KEY:
-				setTargetPrimaryKey((PrimaryKey)newValue);
-				return;
 			case DatabasePackage.FOREIGN_KEY__DB_FK_ROOT:
 				setDbFkRoot((Database)newValue);
 				return;
@@ -467,9 +411,6 @@ public class ForeignKeyImpl extends EObjectImpl implements ForeignKey {
 			case DatabasePackage.FOREIGN_KEY__TARGET_COLUMN:
 				getTargetColumn().clear();
 				return;
-			case DatabasePackage.FOREIGN_KEY__TARGET_PRIMARY_KEY:
-				setTargetPrimaryKey((PrimaryKey)null);
-				return;
 			case DatabasePackage.FOREIGN_KEY__DB_FK_ROOT:
 				setDbFkRoot((Database)null);
 				return;
@@ -496,8 +437,6 @@ public class ForeignKeyImpl extends EObjectImpl implements ForeignKey {
 				return sourceColumn != null && !sourceColumn.isEmpty();
 			case DatabasePackage.FOREIGN_KEY__TARGET_COLUMN:
 				return targetColumn != null && !targetColumn.isEmpty();
-			case DatabasePackage.FOREIGN_KEY__TARGET_PRIMARY_KEY:
-				return targetPrimaryKey != null;
 			case DatabasePackage.FOREIGN_KEY__DB_FK_ROOT:
 				return getDbFkRoot() != null;
 			case DatabasePackage.FOREIGN_KEY__NAME:

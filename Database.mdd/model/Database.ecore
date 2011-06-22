@@ -10,8 +10,6 @@
         eType="#//Table" containment="true" eOpposite="#//Table/DbTableRoot"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Table">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="TablePrimaryKey" eType="#//PrimaryKey"
-        containment="true" eOpposite="#//PrimaryKey/PrimaryKeyTable"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="DbTableRoot" lowerBound="1"
         eType="#//Database" eOpposite="#//Database/DbTable"/>
@@ -23,6 +21,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ColumnTable" lowerBound="1"
         eType="#//Table" eOpposite="#//Table/TableColumn"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="#//DataType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsPrimaryKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ForeignKey">
     <eStructuralFeatures xsi:type="ecore:EReference" name="SourceTable" lowerBound="1"
@@ -33,17 +33,9 @@
         upperBound="-1" eType="#//Column"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="TargetColumn" lowerBound="1"
         upperBound="-1" eType="#//Column"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="TargetPrimaryKey" lowerBound="1"
-        eType="#//PrimaryKey"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="DbFkRoot" lowerBound="1"
         eType="#//Database" eOpposite="#//Database/DbFK"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PrimaryKey">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="PrimaryKeyColumn" lowerBound="1"
-        upperBound="-1" eType="#//Column"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="PrimaryKeyTable" lowerBound="1"
-        eType="#//Table" eOpposite="#//Table/TablePrimaryKey"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DataType">
     <eLiterals name="String"/>

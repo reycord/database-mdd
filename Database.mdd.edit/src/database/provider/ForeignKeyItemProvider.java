@@ -68,7 +68,6 @@ public class ForeignKeyItemProvider
 			addTargetTablePropertyDescriptor(object);
 			addSourceColumnPropertyDescriptor(object);
 			addTargetColumnPropertyDescriptor(object);
-			addTargetPrimaryKeyPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -154,28 +153,6 @@ public class ForeignKeyItemProvider
 				 getString("_UI_ForeignKey_TargetColumn_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ForeignKey_TargetColumn_feature", "_UI_ForeignKey_type"),
 				 DatabasePackage.Literals.FOREIGN_KEY__TARGET_COLUMN,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Target Primary Key feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTargetPrimaryKeyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ForeignKey_TargetPrimaryKey_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ForeignKey_TargetPrimaryKey_feature", "_UI_ForeignKey_type"),
-				 DatabasePackage.Literals.FOREIGN_KEY__TARGET_PRIMARY_KEY,
 				 true,
 				 false,
 				 true,

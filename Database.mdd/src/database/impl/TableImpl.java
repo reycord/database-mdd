@@ -9,7 +9,6 @@ package database.impl;
 import database.Column;
 import database.Database;
 import database.DatabasePackage;
-import database.PrimaryKey;
 import database.Table;
 
 import java.util.Collection;
@@ -36,7 +35,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link database.impl.TableImpl#getTablePrimaryKey <em>Table Primary Key</em>}</li>
  *   <li>{@link database.impl.TableImpl#getName <em>Name</em>}</li>
  *   <li>{@link database.impl.TableImpl#getDbTableRoot <em>Db Table Root</em>}</li>
  *   <li>{@link database.impl.TableImpl#getTableColumn <em>Table Column</em>}</li>
@@ -46,16 +44,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class TableImpl extends EObjectImpl implements Table {
-	/**
-	 * The cached value of the '{@link #getTablePrimaryKey() <em>Table Primary Key</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTablePrimaryKey()
-	 * @generated
-	 * @ordered
-	 */
-	protected PrimaryKey tablePrimaryKey;
-
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -103,49 +91,6 @@ public class TableImpl extends EObjectImpl implements Table {
 	@Override
 	protected EClass eStaticClass() {
 		return DatabasePackage.Literals.TABLE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PrimaryKey getTablePrimaryKey() {
-		return tablePrimaryKey;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTablePrimaryKey(PrimaryKey newTablePrimaryKey, NotificationChain msgs) {
-		PrimaryKey oldTablePrimaryKey = tablePrimaryKey;
-		tablePrimaryKey = newTablePrimaryKey;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DatabasePackage.TABLE__TABLE_PRIMARY_KEY, oldTablePrimaryKey, newTablePrimaryKey);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTablePrimaryKey(PrimaryKey newTablePrimaryKey) {
-		if (newTablePrimaryKey != tablePrimaryKey) {
-			NotificationChain msgs = null;
-			if (tablePrimaryKey != null)
-				msgs = ((InternalEObject)tablePrimaryKey).eInverseRemove(this, DatabasePackage.PRIMARY_KEY__PRIMARY_KEY_TABLE, PrimaryKey.class, msgs);
-			if (newTablePrimaryKey != null)
-				msgs = ((InternalEObject)newTablePrimaryKey).eInverseAdd(this, DatabasePackage.PRIMARY_KEY__PRIMARY_KEY_TABLE, PrimaryKey.class, msgs);
-			msgs = basicSetTablePrimaryKey(newTablePrimaryKey, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatabasePackage.TABLE__TABLE_PRIMARY_KEY, newTablePrimaryKey, newTablePrimaryKey));
 	}
 
 	/**
@@ -231,10 +176,6 @@ public class TableImpl extends EObjectImpl implements Table {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DatabasePackage.TABLE__TABLE_PRIMARY_KEY:
-				if (tablePrimaryKey != null)
-					msgs = ((InternalEObject)tablePrimaryKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.TABLE__TABLE_PRIMARY_KEY, null, msgs);
-				return basicSetTablePrimaryKey((PrimaryKey)otherEnd, msgs);
 			case DatabasePackage.TABLE__DB_TABLE_ROOT:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -253,8 +194,6 @@ public class TableImpl extends EObjectImpl implements Table {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DatabasePackage.TABLE__TABLE_PRIMARY_KEY:
-				return basicSetTablePrimaryKey(null, msgs);
 			case DatabasePackage.TABLE__DB_TABLE_ROOT:
 				return basicSetDbTableRoot(null, msgs);
 			case DatabasePackage.TABLE__TABLE_COLUMN:
@@ -285,8 +224,6 @@ public class TableImpl extends EObjectImpl implements Table {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DatabasePackage.TABLE__TABLE_PRIMARY_KEY:
-				return getTablePrimaryKey();
 			case DatabasePackage.TABLE__NAME:
 				return getName();
 			case DatabasePackage.TABLE__DB_TABLE_ROOT:
@@ -306,9 +243,6 @@ public class TableImpl extends EObjectImpl implements Table {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DatabasePackage.TABLE__TABLE_PRIMARY_KEY:
-				setTablePrimaryKey((PrimaryKey)newValue);
-				return;
 			case DatabasePackage.TABLE__NAME:
 				setName((String)newValue);
 				return;
@@ -331,9 +265,6 @@ public class TableImpl extends EObjectImpl implements Table {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DatabasePackage.TABLE__TABLE_PRIMARY_KEY:
-				setTablePrimaryKey((PrimaryKey)null);
-				return;
 			case DatabasePackage.TABLE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -355,8 +286,6 @@ public class TableImpl extends EObjectImpl implements Table {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DatabasePackage.TABLE__TABLE_PRIMARY_KEY:
-				return tablePrimaryKey != null;
 			case DatabasePackage.TABLE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case DatabasePackage.TABLE__DB_TABLE_ROOT:

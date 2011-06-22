@@ -10,11 +10,6 @@
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
           name="TableFigure">
-        <layout
-            xsi:type="gmfgraph:FlowLayout"
-            vertical="true"
-            forceSingleLine="true"
-            minorAlignment="CENTER"/>
         <children
             xsi:type="gmfgraph:Label"
             name="TableNameFigure"

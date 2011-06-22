@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/Java.mdd/src"
+    modelPluginID="Java.mdd" modelName="Java" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>Java.ecore</foreignModel>
+  <genPackages prefix="Java" disposableProviderFactory="true" ecorePackage="Java.ecore#/">
+    <genClasses ecoreClass="Java.ecore#//Model">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Java.ecore#//Model/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Java.ecore#//Model/ownedMember"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Java.ecore#//Element">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Java.ecore#//Element/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Java.ecore#//Element/owningModel"/>
+    </genClasses>
+    <genClasses ecoreClass="Java.ecore#//Package">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Java.ecore#//Package/classes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Java.ecore#//Package/enumerations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Java.ecore#//Package/isImported"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Java.ecore#//ClassMember">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Java.ecore#//ClassMember/isStatic"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Java.ecore#//ClassMember/isPublic"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Java.ecore#//ClassMember/owner"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Java.ecore#//ClassMember/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Java.ecore#//Field">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Java.ecore#//Field/initializer"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Java.ecore#//Type"/>
+    <genClasses ecoreClass="Java.ecore#//Class">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Java.ecore#//Class/isAbstract"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Java.ecore#//Class/isPublic"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Java.ecore#//Class/isInterface"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Java.ecore#//Class/superClasses"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Java.ecore#//Class/actualTypeParameters"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Java.ecore#//Class/package"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Java.ecore#//Class/members"/>
+    </genClasses>
+    <genClasses ecoreClass="Java.ecore#//Method">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Java.ecore#//Method/body"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Java.ecore#//Method/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Java.ecore#//Method/statements"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Java.ecore#//Method/exceptions"/>
+    </genClasses>
+    <genClasses ecoreClass="Java.ecore#//PrimitiveType"/>
+    <genClasses ecoreClass="Java.ecore#//Enumeration">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Java.ecore#//Enumeration/package"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Java.ecore#//Enumeration/enumerationLiterals"/>
+    </genClasses>
+    <genClasses ecoreClass="Java.ecore#//EnumerationLiteral">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Java.ecore#//EnumerationLiteral/enumeration"/>
+    </genClasses>
+    <genClasses ecoreClass="Java.ecore#//MethodParameter">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Java.ecore#//MethodParameter/type"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Java.ecore#//MethodParameter/method"/>
+    </genClasses>
+    <genClasses ecoreClass="Java.ecore#//Statement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Java.ecore#//Statement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Java.ecore#//Statement/body"/>
+    </genClasses>
+    <nestedGenPackages prefix="PrimitiveTypes" disposableProviderFactory="true" ecorePackage="Java.ecore#//PrimitiveTypes">
+      <genDataTypes ecoreDataType="Java.ecore#//PrimitiveTypes/String"/>
+      <genDataTypes ecoreDataType="Java.ecore#//PrimitiveTypes/Integer"/>
+      <genDataTypes ecoreDataType="Java.ecore#//PrimitiveTypes/Boolean"/>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

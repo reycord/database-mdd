@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/CSharp.mdd/src"
+    modelPluginID="CSharp.mdd" modelName="CSharp" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>CSharp.ecore</foreignModel>
+  <genPackages prefix="CSharp" disposableProviderFactory="true" ecorePackage="CSharp.ecore#/">
+    <genClasses ecoreClass="CSharp.ecore#//Model">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSharp.ecore#//Model/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSharp.ecore#//Model/ownedMember"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="CSharp.ecore#//Element">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSharp.ecore#//Element/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference CSharp.ecore#//Element/owningModel"/>
+    </genClasses>
+    <genClasses ecoreClass="CSharp.ecore#//Namespace">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSharp.ecore#//Namespace/classes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSharp.ecore#//Namespace/enumerations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSharp.ecore#//Namespace/isImported"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="CSharp.ecore#//ClassMember">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSharp.ecore#//ClassMember/isStatic"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSharp.ecore#//ClassMember/isPublic"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference CSharp.ecore#//ClassMember/owner"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CSharp.ecore#//ClassMember/type"/>
+    </genClasses>
+    <genClasses ecoreClass="CSharp.ecore#//Field">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSharp.ecore#//Field/initializer"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="CSharp.ecore#//Type"/>
+    <genClasses ecoreClass="CSharp.ecore#//Class">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSharp.ecore#//Class/isAbstract"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSharp.ecore#//Class/isPublic"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSharp.ecore#//Class/isInterface"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CSharp.ecore#//Class/superClasses"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CSharp.ecore#//Class/actualTypeParameters"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference CSharp.ecore#//Class/namespace"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSharp.ecore#//Class/members"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSharp.ecore#//Class/isPartial"/>
+    </genClasses>
+    <genClasses ecoreClass="CSharp.ecore#//Method">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSharp.ecore#//Method/body"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSharp.ecore#//Method/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSharp.ecore#//Method/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="CSharp.ecore#//PrimitiveType"/>
+    <genClasses ecoreClass="CSharp.ecore#//Enumeration">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference CSharp.ecore#//Enumeration/namespace"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSharp.ecore#//Enumeration/enumerationLiterals"/>
+    </genClasses>
+    <genClasses ecoreClass="CSharp.ecore#//EnumerationLiteral">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference CSharp.ecore#//EnumerationLiteral/enumeration"/>
+    </genClasses>
+    <genClasses ecoreClass="CSharp.ecore#//MethodParameter">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CSharp.ecore#//MethodParameter/type"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference CSharp.ecore#//MethodParameter/method"/>
+    </genClasses>
+    <genClasses ecoreClass="CSharp.ecore#//Statement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSharp.ecore#//Statement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSharp.ecore#//Statement/body"/>
+    </genClasses>
+    <nestedGenPackages prefix="PrimitiveTypes" disposableProviderFactory="true" ecorePackage="CSharp.ecore#//PrimitiveTypes">
+      <genDataTypes ecoreDataType="CSharp.ecore#//PrimitiveTypes/String"/>
+      <genDataTypes ecoreDataType="CSharp.ecore#//PrimitiveTypes/Integer"/>
+      <genDataTypes ecoreDataType="CSharp.ecore#//PrimitiveTypes/Boolean"/>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

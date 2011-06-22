@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: CSharp.mdd;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: CSharp,
+ CSharp.PrimitiveTypes,
+ CSharp.PrimitiveTypes.impl,
+ CSharp.impl,
+ CSharp.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport
+Bundle-ActivationPolicy: lazy

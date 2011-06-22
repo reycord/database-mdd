@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link database.ForeignKey#getTargetTable <em>Target Table</em>}</li>
  *   <li>{@link database.ForeignKey#getSourceColumn <em>Source Column</em>}</li>
  *   <li>{@link database.ForeignKey#getTargetColumn <em>Target Column</em>}</li>
- *   <li>{@link database.ForeignKey#getTargetPrimaryKey <em>Target Primary Key</em>}</li>
  *   <li>{@link database.ForeignKey#getDbFkRoot <em>Db Fk Root</em>}</li>
  *   <li>{@link database.ForeignKey#getName <em>Name</em>}</li>
  * </ul>
@@ -116,32 +115,6 @@ public interface ForeignKey extends EObject {
 	 * @generated
 	 */
 	EList<Column> getTargetColumn();
-
-	/**
-	 * Returns the value of the '<em><b>Target Primary Key</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Target Primary Key</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Target Primary Key</em>' reference.
-	 * @see #setTargetPrimaryKey(PrimaryKey)
-	 * @see database.DatabasePackage#getForeignKey_TargetPrimaryKey()
-	 * @model required="true"
-	 * @generated
-	 */
-	PrimaryKey getTargetPrimaryKey();
-
-	/**
-	 * Sets the value of the '{@link database.ForeignKey#getTargetPrimaryKey <em>Target Primary Key</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Target Primary Key</em>' reference.
-	 * @see #getTargetPrimaryKey()
-	 * @generated
-	 */
-	void setTargetPrimaryKey(PrimaryKey value);
 
 	/**
 	 * Returns the value of the '<em><b>Db Fk Root</b></em>' container reference.

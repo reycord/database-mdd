@@ -65,7 +65,6 @@ public class DatabaseFactoryImpl extends EFactoryImpl implements DatabaseFactory
 			case DatabasePackage.TABLE: return createTable();
 			case DatabasePackage.COLUMN: return createColumn();
 			case DatabasePackage.FOREIGN_KEY: return createForeignKey();
-			case DatabasePackage.PRIMARY_KEY: return createPrimaryKey();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -139,16 +138,6 @@ public class DatabaseFactoryImpl extends EFactoryImpl implements DatabaseFactory
 	public ForeignKey createForeignKey() {
 		ForeignKeyImpl foreignKey = new ForeignKeyImpl();
 		return foreignKey;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PrimaryKey createPrimaryKey() {
-		PrimaryKeyImpl primaryKey = new PrimaryKeyImpl();
-		return primaryKey;
 	}
 
 	/**

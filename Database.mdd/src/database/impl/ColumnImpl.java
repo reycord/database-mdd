@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link database.impl.ColumnImpl#getName <em>Name</em>}</li>
  *   <li>{@link database.impl.ColumnImpl#getColumnTable <em>Column Table</em>}</li>
  *   <li>{@link database.impl.ColumnImpl#getType <em>Type</em>}</li>
+ *   <li>{@link database.impl.ColumnImpl#isIsPrimaryKey <em>Is Primary Key</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,6 +78,26 @@ public class ColumnImpl extends EObjectImpl implements Column {
 	 * @ordered
 	 */
 	protected DataType type = TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isIsPrimaryKey() <em>Is Primary Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsPrimaryKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IS_PRIMARY_KEY_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isIsPrimaryKey() <em>Is Primary Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsPrimaryKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean isPrimaryKey = IS_PRIMARY_KEY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -185,6 +206,27 @@ public class ColumnImpl extends EObjectImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isIsPrimaryKey() {
+		return isPrimaryKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsPrimaryKey(boolean newIsPrimaryKey) {
+		boolean oldIsPrimaryKey = isPrimaryKey;
+		isPrimaryKey = newIsPrimaryKey;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatabasePackage.COLUMN__IS_PRIMARY_KEY, oldIsPrimaryKey, isPrimaryKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -238,6 +280,8 @@ public class ColumnImpl extends EObjectImpl implements Column {
 				return getColumnTable();
 			case DatabasePackage.COLUMN__TYPE:
 				return getType();
+			case DatabasePackage.COLUMN__IS_PRIMARY_KEY:
+				return isIsPrimaryKey();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -258,6 +302,9 @@ public class ColumnImpl extends EObjectImpl implements Column {
 				return;
 			case DatabasePackage.COLUMN__TYPE:
 				setType((DataType)newValue);
+				return;
+			case DatabasePackage.COLUMN__IS_PRIMARY_KEY:
+				setIsPrimaryKey((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -280,6 +327,9 @@ public class ColumnImpl extends EObjectImpl implements Column {
 			case DatabasePackage.COLUMN__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
+			case DatabasePackage.COLUMN__IS_PRIMARY_KEY:
+				setIsPrimaryKey(IS_PRIMARY_KEY_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -298,6 +348,8 @@ public class ColumnImpl extends EObjectImpl implements Column {
 				return getColumnTable() != null;
 			case DatabasePackage.COLUMN__TYPE:
 				return type != TYPE_EDEFAULT;
+			case DatabasePackage.COLUMN__IS_PRIMARY_KEY:
+				return isPrimaryKey != IS_PRIMARY_KEY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -316,6 +368,8 @@ public class ColumnImpl extends EObjectImpl implements Column {
 		result.append(name);
 		result.append(", Type: ");
 		result.append(type);
+		result.append(", IsPrimaryKey: ");
+		result.append(isPrimaryKey);
 		result.append(')');
 		return result.toString();
 	}

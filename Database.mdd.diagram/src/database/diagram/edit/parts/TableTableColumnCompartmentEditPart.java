@@ -7,6 +7,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 
 import database.diagram.edit.policies.TableTableColumnCompartmentCanonicalEditPolicy;
@@ -74,8 +75,9 @@ public class TableTableColumnCompartmentEditPart extends
 	 * @generated
 	 */
 	protected void setRatio(Double ratio) {
-		// nothing to do -- parent layout does not accept Double constraints as ratio
-		// super.setRatio(ratio); 
+		if (getFigure().getParent().getLayoutManager() instanceof ConstrainedToolbarLayout) {
+			super.setRatio(ratio);
+		}
 	}
 
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="platform:/resource/MDA_ATL_UWE/Metamodel/Java.ecore"
+            class="Java.JavaPackage"
+            genModel="model/Java.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://PrimitiveTypes"
+            class="Java.PrimitiveTypes.PrimitiveTypesPackage"
+            genModel="model/Java.genmodel"/>
+   </extension>
+
+</plugin>
