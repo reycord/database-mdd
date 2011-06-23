@@ -41,7 +41,7 @@ public interface JavaPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "platform:/resource/MDA_ATL_UWE/Metamodel/Java.ecore";
+	String eNS_URI = "http://Java/1.0";
 
 	/**
 	 * The package namespace name.

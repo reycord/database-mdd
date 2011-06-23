@@ -1,11 +1,17 @@
 -- @nsURI MMDatabase=http://database/1.0
--- @path MMCSharp=/MDA_ATL_UWE/Metamodel/CSharp.ecore
+-- @nsURI MMCSharp=http://CSharp/1.0
 
 module Db2CSharp;
 create OUT : MMCSharp from IN : MMDatabase;
 
 helper context MMDatabase!Table def : getAllColumns () : OrderedSet(MMDatabase!Column) =
 	self.TableColumn->iterate( child ; cols : OrderedSet(MMDatabase!Column) = 
+		OrderedSet{} | 
+			cols.append(child)
+		)
+	;
+helper context MMDatabase!Database def : getAllTables () : OrderedSet(MMDatabase!Table) =
+	self.DbTable->iterate( child ; cols : OrderedSet(MMDatabase!Table) = 
 		OrderedSet{} | 
 			cols.append(child)
 		)
@@ -41,6 +47,16 @@ rule Column2Field{
 		)
 }
 
+rule Database2Namespace{
+	from
+		db : MMDatabase!Database
+	to
+		ns : MMCSharp!Namespace(
+			name <- 'AutoNameSpace',
+			classes <- db.getAllTables()
+		)
+}
+
 unique lazy rule Type2PrimitiveType{
 	from
 		s : String
@@ -49,5 +65,3 @@ unique lazy rule Type2PrimitiveType{
 			name <- s	
 		)
 }
-
-

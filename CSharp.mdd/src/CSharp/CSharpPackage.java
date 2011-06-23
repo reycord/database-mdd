@@ -41,7 +41,7 @@ public interface CSharpPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "platform:/resource/MDA_ATL_UWE/Metamodel/CSharp.ecore";
+	String eNS_URI = "http://CSharp/1.0";
 
 	/**
 	 * The package namespace name.

@@ -41,7 +41,7 @@ public class CSharpFactoryImpl extends EFactoryImpl implements CSharpFactory {
 	 */
 	public static CSharpFactory init() {
 		try {
-			CSharpFactory theCSharpFactory = (CSharpFactory)EPackage.Registry.INSTANCE.getEFactory("platform:/resource/MDA_ATL_UWE/Metamodel/CSharp.ecore"); 
+			CSharpFactory theCSharpFactory = (CSharpFactory)EPackage.Registry.INSTANCE.getEFactory("http://CSharp/1.0"); 
 			if (theCSharpFactory != null) {
 				return theCSharpFactory;
 			}

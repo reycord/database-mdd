@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Java"
-    nsURI="platform:/resource/MDA_ATL_UWE/Metamodel/Java.ecore" nsPrefix="Java">
+    nsURI="http://Java/1.0" nsPrefix="Java">
   <eClassifiers xsi:type="ecore:EClass" name="Model">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="#//PrimitiveTypes/String"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedMember" upperBound="-1"

@@ -12,7 +12,7 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="platform:/resource/MDA_ATL_UWE/Metamodel/CSharp.ecore"
+            uri="http://CSharp/1.0"
             class="CSharp.CSharpPackage"
             genModel="model/CSharp.genmodel"/>
    </extension>

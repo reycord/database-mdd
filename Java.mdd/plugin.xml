@@ -12,7 +12,7 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="platform:/resource/MDA_ATL_UWE/Metamodel/Java.ecore"
+            uri="http://Java/1.0"
             class="Java.JavaPackage"
             genModel="model/Java.genmodel"/>
    </extension>

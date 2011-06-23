@@ -1,4 +1,4 @@
--- @path MMJava=/MDA_ATL_UWE/Metamodel/Java.ecore
+-- @nsURI MMJava=http://Java/1.0
 -- @nsURI MMDatabase=http://database/1.0
 
 module Db2Java;
@@ -6,6 +6,13 @@ create OUT : MMJava from IN : MMDatabase;
 
 helper context MMDatabase!Table def : getAllColumns () : OrderedSet(MMDatabase!Column) =
 	self.TableColumn->iterate( child ; cols : OrderedSet(MMDatabase!Column) = 
+		OrderedSet{} | 
+			cols.append(child)
+		)
+	;
+
+helper context MMDatabase!Database def : getAllTables () : OrderedSet(MMDatabase!Table) =
+	self.DbTable->iterate( child ; cols : OrderedSet(MMDatabase!Table) = 
 		OrderedSet{} | 
 			cols.append(child)
 		)
@@ -28,6 +35,16 @@ rule Column2Field{
 		fld : MMJava!Field(
 			name <- col.Name,
 			type <- thisModule.Type2PrimitiveType(col.Type.toString())
+		)
+}
+
+rule Database2Pakage{
+	from
+		db : MMDatabase!Database
+	to
+		ns : MMJava!Package(
+			name <- 'AutoPackageName',
+			classes <- db.getAllTables() 
 		)
 }
 

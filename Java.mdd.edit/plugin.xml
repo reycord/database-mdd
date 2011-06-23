@@ -12,7 +12,7 @@
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
-            uri="platform:/resource/MDA_ATL_UWE/Metamodel/Java.ecore"
+            uri="http://Java/1.0"
             class="Java.provider.JavaItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider

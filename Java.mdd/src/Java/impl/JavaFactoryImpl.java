@@ -40,7 +40,7 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	 */
 	public static JavaFactory init() {
 		try {
-			JavaFactory theJavaFactory = (JavaFactory)EPackage.Registry.INSTANCE.getEFactory("platform:/resource/MDA_ATL_UWE/Metamodel/Java.ecore"); 
+			JavaFactory theJavaFactory = (JavaFactory)EPackage.Registry.INSTANCE.getEFactory("http://Java/1.0"); 
 			if (theJavaFactory != null) {
 				return theJavaFactory;
 			}
