@@ -1,0 +1,53 @@
+-- @nsURI MMDatabase=http://database/1.0
+-- @path MMCSharp=/MDA_ATL_UWE/Metamodel/CSharp.ecore
+
+module Db2CSharp;
+create OUT : MMCSharp from IN : MMDatabase;
+
+helper context MMDatabase!Table def : getAllColumns () : OrderedSet(MMDatabase!Column) =
+	self.TableColumn->iterate( child ; cols : OrderedSet(MMDatabase!Column) = 
+		OrderedSet{} | 
+			cols.append(child)
+		)
+	;
+
+rule Table2Class{
+	from
+		table : MMDatabase!Table
+	to
+		class : MMCSharp!Class(
+			name <- table.Name,	
+			members <- table.getAllColumns()
+		)		
+}
+
+rule ColumnType2PrimitiveType(s : String ){	
+	to
+		ptype : MMCSharp!PrimitiveType(
+			name <- s	
+		)
+	do{				
+		ptype;
+	}	
+}
+
+rule Column2Field{
+	from
+		col : MMDatabase!Column
+	to
+		fld : MMCSharp!Field(
+			name <- col.Name,
+			type <- thisModule.Type2PrimitiveType(col.Type.toString())
+		)
+}
+
+unique lazy rule Type2PrimitiveType{
+	from
+		s : String
+	to
+		t : MMCSharp!PrimitiveType(
+			name <- s	
+		)
+}
+
+

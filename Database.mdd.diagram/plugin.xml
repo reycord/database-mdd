@@ -51,7 +51,7 @@
       </wizard>
    </extension>
 
-   <extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
+   <extension point="org.eclipse.ui.popupMenus" id="%extension.id">
       <?gmfgen generated="true"?>
       <objectContribution
             id="Database.mdd.diagram.InitDiagram"
@@ -482,7 +482,7 @@
       <?gmfgen generated="true"?>
       <category id="database.diagram.part.DatabaseDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
       <command id="Database.mdd.diagram.LoadResourceAction"
-         name="Load Resource"
+         name="%command.name"
          categoryId="database.diagram.part.DatabaseDiagramEditorID"
          defaultHandler="database.diagram.part.LoadResourceAction"/>
    </extension>
