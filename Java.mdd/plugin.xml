@@ -19,7 +19,7 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://PrimitiveTypes"
+            uri="http://JavaPrimitiveTypes"
             class="Java.PrimitiveTypes.PrimitiveTypesPackage"
             genModel="model/Java.genmodel"/>
    </extension>

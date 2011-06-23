@@ -19,7 +19,7 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://PrimitiveTypes"
+            uri="http://CSharpPrimitiveTypes"
             class="CSharp.PrimitiveTypes.PrimitiveTypesPackage"
             genModel="model/CSharp.genmodel"/>
    </extension>

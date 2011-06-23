@@ -60,7 +60,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSharp.ecore#//Statement/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSharp.ecore#//Statement/body"/>
     </genClasses>
-    <nestedGenPackages prefix="PrimitiveTypes" disposableProviderFactory="true" ecorePackage="CSharp.ecore#//PrimitiveTypes">
+    <nestedGenPackages prefix="PrimitiveTypes" basePackage="CSharp" disposableProviderFactory="true"
+        ecorePackage="CSharp.ecore#//PrimitiveTypes">
       <genDataTypes ecoreDataType="CSharp.ecore#//PrimitiveTypes/String"/>
       <genDataTypes ecoreDataType="CSharp.ecore#//PrimitiveTypes/Integer"/>
       <genDataTypes ecoreDataType="CSharp.ecore#//PrimitiveTypes/Boolean"/>

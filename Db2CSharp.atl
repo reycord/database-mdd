@@ -1,0 +1,59 @@
+-- @nsURI MMDatabase=http://database/1.0
+-- @path MMCSharp=/MDA_ATL_UWE/Metamodel/CSharp.ecore
+
+module Db2CSharp;
+create OUT : MMCSharp from IN : MMDatabase;
+
+helper context MMDatabase!Table def : getAllColumns () : OrderedSet(MMDatabase!Column) =
+	self.TableColumn->iterate( child ; cols : OrderedSet(MMDatabase!Column) = 
+		OrderedSet{} | 
+			cols.append(child)
+		)
+	;
+
+--helper context MMDatabase!Table def : getTypes () : OrderedSet(String) =
+--	self.TableColumn->iterate( col ; types : OrderedSet(String) = 
+--		OrderedSet{} | 
+--		if not col.Type.oclIsUndefined() then
+--			types.union(col.Type.toString())	
+--		else
+--			types	
+--		endif
+--		)
+--	;
+--
+--helper context MMDatabase!Database def : getAllTypes () : OrderedSet(String) =
+--	self.DbTable->iterate(tbl; types: OrderedSet(String) = 
+--		OrderedSet{} | 
+--		types.union(tbl.getTypes())
+--	)	
+--	;
+
+rule Table2Class{
+	from
+		table : MMDatabase!Table
+	to
+		class : MMCSharp!Class(
+			name <- table.Name,	
+			members <- table.getAllColumns()
+		)		
+}
+
+rule Column2Field{
+	from
+		col : MMDatabase!Column
+	to
+		fld : MMCSharp!Field(
+			name <- col.Name			
+		)
+}
+
+--rule ColumnType2PrimitiveType(s : String ){	
+--	to
+--		ptype : MMCSharp!PrimitiveType(
+--			name <- s	
+--		)
+--	do{		
+--		ptype;
+--	}	
+--}

@@ -60,7 +60,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Java.ecore#//Statement/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Java.ecore#//Statement/body"/>
     </genClasses>
-    <nestedGenPackages prefix="PrimitiveTypes" disposableProviderFactory="true" ecorePackage="Java.ecore#//PrimitiveTypes">
+    <nestedGenPackages prefix="PrimitiveTypes" basePackage="Java" disposableProviderFactory="true"
+        ecorePackage="Java.ecore#//PrimitiveTypes">
       <genDataTypes ecoreDataType="Java.ecore#//PrimitiveTypes/String"/>
       <genDataTypes ecoreDataType="Java.ecore#//PrimitiveTypes/Integer"/>
       <genDataTypes ecoreDataType="Java.ecore#//PrimitiveTypes/Boolean"/>

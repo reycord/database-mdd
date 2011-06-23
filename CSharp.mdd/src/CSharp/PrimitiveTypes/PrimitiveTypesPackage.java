@@ -37,17 +37,17 @@ public interface PrimitiveTypesPackage extends EPackage {
 	 * The package namespace URI.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * 
 	 */
-	String eNS_URI = "http://PrimitiveTypes";
+	String eNS_URI = "http://CSharpPrimitiveTypes";
 
 	/**
 	 * The package namespace name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * 
 	 */
-	String eNS_PREFIX = "PrimitiveTypes";
+	String eNS_PREFIX = "CSharpPrimitiveTypes";
 
 	/**
 	 * The singleton instance of the package.

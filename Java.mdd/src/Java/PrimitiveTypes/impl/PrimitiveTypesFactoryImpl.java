@@ -32,7 +32,7 @@ public class PrimitiveTypesFactoryImpl extends EFactoryImpl implements Primitive
 	 */
 	public static PrimitiveTypesFactory init() {
 		try {
-			PrimitiveTypesFactory thePrimitiveTypesFactory = (PrimitiveTypesFactory)EPackage.Registry.INSTANCE.getEFactory("http://PrimitiveTypes"); 
+			PrimitiveTypesFactory thePrimitiveTypesFactory = (PrimitiveTypesFactory)EPackage.Registry.INSTANCE.getEFactory("http://JavaPrimitiveTypes"); 
 			if (thePrimitiveTypesFactory != null) {
 				return thePrimitiveTypesFactory;
 			}
