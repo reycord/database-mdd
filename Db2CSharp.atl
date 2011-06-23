@@ -11,24 +11,6 @@ helper context MMDatabase!Table def : getAllColumns () : OrderedSet(MMDatabase!C
 		)
 	;
 
---helper context MMDatabase!Table def : getTypes () : OrderedSet(String) =
---	self.TableColumn->iterate( col ; types : OrderedSet(String) = 
---		OrderedSet{} | 
---		if not col.Type.oclIsUndefined() then
---			types.union(col.Type.toString())	
---		else
---			types	
---		endif
---		)
---	;
---
---helper context MMDatabase!Database def : getAllTypes () : OrderedSet(String) =
---	self.DbTable->iterate(tbl; types: OrderedSet(String) = 
---		OrderedSet{} | 
---		types.union(tbl.getTypes())
---	)	
---	;
-
 rule Table2Class{
 	from
 		table : MMDatabase!Table
@@ -39,21 +21,33 @@ rule Table2Class{
 		)		
 }
 
+rule ColumnType2PrimitiveType(s : String ){	
+	to
+		ptype : MMCSharp!PrimitiveType(
+			name <- s	
+		)
+	do{				
+		ptype;
+	}	
+}
+
 rule Column2Field{
 	from
 		col : MMDatabase!Column
 	to
 		fld : MMCSharp!Field(
-			name <- col.Name			
+			name <- col.Name,
+			type <- thisModule.Type2PrimitiveType(col.Type.toString())
 		)
 }
 
---rule ColumnType2PrimitiveType(s : String ){	
---	to
---		ptype : MMCSharp!PrimitiveType(
---			name <- s	
---		)
---	do{		
---		ptype;
---	}	
---}
+unique lazy rule Type2PrimitiveType{
+	from
+		s : String
+	to
+		t : MMCSharp!PrimitiveType(
+			name <- s	
+		)
+}
+
+
