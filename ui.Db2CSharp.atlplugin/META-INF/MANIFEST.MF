@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %Bundle-Name
+Bundle-SymbolicName: ui.Db2CSharp.atlplugin; singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: ui.db2csharp.atlplugin.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ console.Db2CSharp.atlplugin;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6,
+ J2SE-1.5
+Export-Package: ui.db2csharp.atlplugin,
+ ui.db2csharp.atlplugin.popup.actions

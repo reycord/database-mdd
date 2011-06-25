@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.core.resources.IFile"
+            id="ui.Db2Java.atlplugin.contribution1">
+         <menu
+               label="%menu.label"
+               path="additions"
+               id="ui.Db2Java.atlplugin.menu1">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               label="%action.label"
+               class="ui.db2java.atlplugin.popup.actions.Db2JavaAction"
+               menubarPath="ui.Db2Java.atlplugin.menu1/group1"
+               enablesFor="1"
+               id="ui.Db2Java.atlplugin.newAction">
+         </action>
+      </objectContribution>
+   </extension>
+
+</plugin>

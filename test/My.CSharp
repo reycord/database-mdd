@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CSharp="http://CSharp/1.0">
+  <CSharp:Namespace name="AutoNameSpace">
+    <classes name="Person">
+      <members xsi:type="CSharp:Field" name="pID" type="/1"/>
+      <members xsi:type="CSharp:Field" name="pName" type="/2"/>
+      <members xsi:type="CSharp:Field" name="pBirthday" type="/3"/>
+      <members xsi:type="CSharp:Field" name="pXFactor" type="/4"/>
+      <members xsi:type="CSharp:Field" name="pAddressID" type="/1"/>
+    </classes>
+    <classes name="Address">
+      <members xsi:type="CSharp:Field" name="aID" type="/1"/>
+      <members xsi:type="CSharp:Field" name="aCity" type="/2"/>
+      <members xsi:type="CSharp:Field" name="aAreaCode" type="/1"/>
+    </classes>
+  </CSharp:Namespace>
+  <CSharp:PrimitiveType name="Int"/>
+  <CSharp:PrimitiveType name="String"/>
+  <CSharp:PrimitiveType name="Date"/>
+  <CSharp:PrimitiveType name="Float"/>
+</xmi:XMI>

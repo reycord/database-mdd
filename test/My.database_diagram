@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:database="http://database/1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_IA3AAJ2IEeCt8azc3me-CQ" type="Database" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_Id6IYJ2IEeCt8azc3me-CQ" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_Id6IYp2IEeCt8azc3me-CQ" type="5001"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_Id6IY52IEeCt8azc3me-CQ" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_Jp6BcJ2IEeCt8azc3me-CQ" type="3001">
+        <element xmi:type="database:Column" href="My.database#//@DbTable.0/@TableColumn.0"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Jp6BcZ2IEeCt8azc3me-CQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_LSz48J2IEeCt8azc3me-CQ" type="3001">
+        <element xmi:type="database:Column" href="My.database#//@DbTable.0/@TableColumn.1"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_LSz48Z2IEeCt8azc3me-CQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Mg5csJ2IEeCt8azc3me-CQ" type="3001">
+        <element xmi:type="database:Column" href="My.database#//@DbTable.0/@TableColumn.2"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Mg5csZ2IEeCt8azc3me-CQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_OlXO0J2IEeCt8azc3me-CQ" type="3001">
+        <element xmi:type="database:Column" href="My.database#//@DbTable.0/@TableColumn.3"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_OlXO0Z2IEeCt8azc3me-CQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_QH28UJ2IEeCt8azc3me-CQ" type="3001">
+        <element xmi:type="database:Column" href="My.database#//@DbTable.0/@TableColumn.4"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_QH28UZ2IEeCt8azc3me-CQ"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Id6IZJ2IEeCt8azc3me-CQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Id6IZZ2IEeCt8azc3me-CQ"/>
+    </children>
+    <element xmi:type="database:Table" href="My.database#//@DbTable.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Id6IYZ2IEeCt8azc3me-CQ" x="61" y="101"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_R2SNAJ2IEeCt8azc3me-CQ" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_R2SNAp2IEeCt8azc3me-CQ" type="5001"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_R2SNA52IEeCt8azc3me-CQ" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_SiFjEJ2IEeCt8azc3me-CQ" type="3001">
+        <element xmi:type="database:Column" href="My.database#//@DbTable.1/@TableColumn.0"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_SiFjEZ2IEeCt8azc3me-CQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_UKiuoJ2IEeCt8azc3me-CQ" type="3001">
+        <element xmi:type="database:Column" href="My.database#//@DbTable.1/@TableColumn.1"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UKiuoZ2IEeCt8azc3me-CQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_VG5pMJ2IEeCt8azc3me-CQ" type="3001">
+        <element xmi:type="database:Column" href="My.database#//@DbTable.1/@TableColumn.2"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_VG5pMZ2IEeCt8azc3me-CQ"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_R2SNBJ2IEeCt8azc3me-CQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_R2SNBZ2IEeCt8azc3me-CQ"/>
+    </children>
+    <element xmi:type="database:Table" href="My.database#//@DbTable.1"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_R2SNAZ2IEeCt8azc3me-CQ" x="224" y="113"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_IA3AAZ2IEeCt8azc3me-CQ"/>
+  <element xmi:type="database:Database" href="My.database#/"/>
+  <edges xmi:type="notation:Connector" xmi:id="_Yayb0J2IEeCt8azc3me-CQ" type="4001" source="_Id6IYJ2IEeCt8azc3me-CQ" target="_R2SNAJ2IEeCt8azc3me-CQ">
+    <styles xmi:type="notation:FontStyle" xmi:id="_Yayb0Z2IEeCt8azc3me-CQ"/>
+    <element xmi:type="database:ForeignKey" href="My.database#//@DbFK.0"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Yayb0p2IEeCt8azc3me-CQ" points="[27, 1, -112, -9]$[137, -5, -2, -15]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ya8M0J2IEeCt8azc3me-CQ" id="(0.7065217391304348,0.1559633027522936)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ya8M0Z2IEeCt8azc3me-CQ" id="(0.4659090909090909,0.19480519480519481)"/>
+  </edges>
+</notation:Diagram>
